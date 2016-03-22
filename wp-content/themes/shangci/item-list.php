@@ -20,35 +20,34 @@
     if (isset($_POST['decade'])){
         $con = $_POST['decade'];
         foreach($con as $selected)
-            echo $selected."\n";
+            /*echo $selected."\n";*/
 			array_push($cat_decade,$selected);
     }
 	
 	 if (isset($_POST['shape'])){
         $con = $_POST['shape'];
         foreach($con as $selected)
-            echo $selected."\n";
 			array_push($cat_shape,$selected);
     }
 	
 	 if (isset($_POST['kilns'])){
         $con = $_POST['kilns'];
         foreach($con as $selected)
-            echo $selected."\n";
+/*            echo $selected."\n";*/
 			array_push($cat_dkilns,$selected);
     }
 	
 	 if (isset($_POST['glaze'])){
         $con = $_POST['glaze'];
         foreach($con as $selected)
-            echo $selected."\n";
+           /* echo $selected."\n";*/
 			array_push($cat_glaze,$selected);
     }
 	
 	 if (isset($_POST['craft'])){
         $con = $_POST['craft'];
         foreach($con as $selected)
-            echo $selected."\n";
+            /*echo $selected."\n";*/
 			array_push($cat_craft,$selected);
     }
 	
@@ -77,12 +76,14 @@
 		$cat=$cat_craft; 
 		$cat_in = array_merge($cat_decade,$cat_shape,$cat_dkilns,$cat_glaze);
 	}
-	
+
 }
 ?>
  <!------------------------------------------- testing end-------------------------------------------------->
 
 <?php get_header(); ?>
+
+
 
 
 
@@ -187,6 +188,20 @@
                                 <h4 class="text-center" style="border-bottom: 2px solid #6A6A6A; padding-bottom:5px;">精品列表</h4>       
                     </div>
            		</div> 
+                
+                <div class="row">
+                 <?php 
+				 
+				
+				 
+				 foreach ($cat_decade as $dec) {
+    					 echo $dec.','; 
+					 }
+				 
+				 
+				 ?>
+                
+                </div>
                 
                 <div class="row filter hidden-xs">
                 <form action="" method="POST">
@@ -450,3 +465,17 @@
 
 
 <?php get_footer() ?>
+
+<?php
+echo '<script type="text/javascript">';
+echo '$("#ms").val([';
+echo '"21",';
+echo '"22"';
+echo ']);';
+
+echo '</script>';
+
+
+
+?>
+

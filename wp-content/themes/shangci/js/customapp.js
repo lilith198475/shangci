@@ -1,8 +1,6 @@
 
-    	 $(document).ready(function() {
-			 
-			 
-			 // browser window scroll (in pixels) after which the "back to top" link is shown
+  $(document).ready(function() {		 
+	 // browser window scroll (in pixels) after which the "back to top" link is shown
 	     var offset = 300,
 		//browser window scroll (in pixels) after which the "back to top" link opacity is reduced
 		offset_opacity = 1200,
@@ -27,9 +25,7 @@
 		 	}, scroll_top_duration
 		);
 	});
-			 
-			 
-			 
+ 
 		   //Slider
 			$("#content-slider").lightSlider({
                 loop:true,
@@ -52,31 +48,31 @@
 		//Multiple choice dropdown menu
 			
 			$('#ms').change(function() {
-				console.log($(this).val());
+				
 			}).multipleSelect({
 				width: '100%'
 			});
 			
 			$('#ms2').change(function() {
-				console.log($(this).val());
+				
 			}).multipleSelect({
 				width: '100%'
 			});
 			
 			$('#ms3').change(function() {
-				console.log($(this).val());
+			
 			}).multipleSelect({
 				width: '100%'
 			});
 			
 			$('#ms4').change(function() {
-				console.log($(this).val());
+				
 			}).multipleSelect({
 				width: '100%'
 			});
 			
 			$('#ms5').change(function() {
-				console.log($(this).val());
+				
 			}).multipleSelect({
 				width: '100%'
 			});
@@ -101,9 +97,11 @@
 			});
 		});
 			
+			
 		$('.more-filter').click(function(event){
 					event.preventDefault();
 		});
+		
 		
 		$('.glyph-switch').click(function(event){
 					event.preventDefault();
@@ -115,15 +113,18 @@
 						}else{
 							console.log("no");
 							$(this).removeClass("glyphicon-triangle-bottom");
-							return "glyphicon-triangle-top";
-							
+							return "glyphicon-triangle-top";	
 						}
-						
-					});
-					
-		
-					
 		});
+		
+		
+		
+		
+	   	
+				
+});
+
+//$('#ms').val(["21", "22"]);
  
 
 
