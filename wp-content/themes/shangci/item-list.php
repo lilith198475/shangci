@@ -193,10 +193,7 @@
                  <?php 
 				 
 				
-				 
-				 foreach ($cat_decade as $dec) {
-    					 echo $dec.','; 
-					 }
+				
 				 
 				 
 				 ?>
@@ -469,8 +466,37 @@
 <?php
 echo '<script type="text/javascript">';
 echo '$("#ms").val([';
-echo '"21",';
-echo '"22"';
+foreach ($cat_decade as $dec) {
+   echo '"'.$dec.'"'.','; 
+}
+
+echo ']);';
+
+
+echo '$("#ms2").val([';
+foreach ($cat_shape as $sha) {
+   echo '"'.$sha.'"'.','; 
+}
+echo ']);';
+
+
+echo '$("#ms3").val([';
+foreach ($cat_dkilns as $dki) {
+   echo '"'.$dki.'"'.','; 
+}
+echo ']);';
+
+echo '$("#ms4").val([';
+foreach ($cat_glaze as $glz) {
+   echo '"'.$glz.'"'.','; 
+}
+echo ']);';
+
+
+echo '$("#ms5").val([';
+foreach ($cat_craft as $craf) {
+   echo '"'.$craf.'"'.','; 
+}
 echo ']);';
 
 echo '</script>';
