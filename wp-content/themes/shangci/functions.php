@@ -197,10 +197,12 @@ function wpbeginner_numeric_posts_nav() {
 
 
 }
-
-
-
 ?>
+
+
+
+
+<!---------------------------------------------------------------------------------Category page custom input ----------------------------------------------------------------------->
 
 <?php
 //add extra fields to category edit form hook
@@ -211,31 +213,17 @@ function extra_category_fields( $tag ) {    //check for existing featured ID
     $cat_meta = get_option( "category_$t_id");
 ?>
 <tr class="form-field">
-<th scope="row" valign="top"><label for="cat_Image_url"><?php _e('Category Image Url'); ?></label></th>
+<th scope="row" valign="top"><label for="Subtitle"><?php _e('Subtitle'); ?></label></th>
 <td>
-<input type="text" name="Cat_meta[img]" id="Cat_meta[img]" size="3" style="width:60%;" value="<?php echo $cat_meta['img'] ? $cat_meta['img'] : ''; ?>"><br />
-            <span class="description"><?php _e('Image for category: use full url with '); ?></span>
+<input type="text" name="Cat_meta[Subtitle]" id="Cat_meta[Subtitle]" size="25" style="width:60%;" value="<?php echo $cat_meta['Subtitle'] ? $cat_meta['Subtitle'] : ''; ?>"><br />
+            <span class="description"><?php _e('Sutbitle'); ?></span>
         </td>
 </tr>
 <tr class="form-field">
-<th scope="row" valign="top"><label for="extra1"><?php _e('extra field'); ?></label></th>
+<th scope="row" valign="top"><label for="More Description"><?php _e('More Description'); ?></label></th>
 <td>
-<input type="text" name="Cat_meta[extra1]" id="Cat_meta[extra1]" size="25" style="width:60%;" value="<?php echo $cat_meta['extra1'] ? $cat_meta['extra1'] : ''; ?>"><br />
-            <span class="description"><?php _e('extra field'); ?></span>
-        </td>
-</tr>
-<tr class="form-field">
-<th scope="row" valign="top"><label for="extra2"><?php _e('extra field'); ?></label></th>
-<td>
-<input type="text" name="Cat_meta[extra2]" id="Cat_meta[extra2]" size="25" style="width:60%;" value="<?php echo $cat_meta['extra2'] ? $cat_meta['extra2'] : ''; ?>"><br />
-            <span class="description"><?php _e('extra field'); ?></span>
-        </td>
-</tr>
-<tr class="form-field">
-<th scope="row" valign="top"><label for="extra3"><?php _e('extra field'); ?></label></th>
-<td>
-            <textarea name="Cat_meta[extra3]" id="Cat_meta[extra3]" style="width:60%;"><?php echo $cat_meta['extra3'] ? $cat_meta['extra3'] : ''; ?></textarea><br />
-            <span class="description"><?php _e('extra field'); ?></span>
+            <textarea name="Cat_meta[More_Description]" id="Cat_meta[More_Description]" style="width:60%;"><?php echo $cat_meta['More_Description'] ? $cat_meta['More_Description'] : ''; ?></textarea><br />
+            <span class="description"><?php _e('More Description'); ?></span>
         </td>
 </tr>
 <?php
@@ -260,4 +248,4 @@ function save_extra_category_fileds( $term_id ) {
         update_option( "category_$t_id", $cat_meta );
     }
 }?>
-
+<!---------------------------------------------------------------------------------Category page custom input end ----------------------------------------------------------------------->
