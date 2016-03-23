@@ -343,19 +343,7 @@
           	    </div>
                 
                 
-                
-                
-                <div class="row order">
-                       <span class="pull-left">排序：  <a href="#" class="glyph-switch">日期 <i class="glyphicon glyphicon-triangle-top"></i></a></span>
-                       <span class="pull-right">相关精品:7</span>
-                </div>
-                
-                
-                <div class="row">
-                
-                 	<section class="item-list">
-                    
-                       <?php
+                  <?php
                       
 						/*$cat=get_category_by_slug('棒槌瓶')->term_id;*/
                         $posts_per_page = 8;
@@ -370,8 +358,21 @@
                             'orderby' => 'date',
                             'order' =>'DESC',
                         );
-                        query_posts($args); 
+                        query_posts($args);  
+						global $wp_query; 
                     ?>     
+                
+                <div class="row order">
+                       <span class="pull-left">排序：  <a href="#" class="glyph-switch">日期 <i class="glyphicon glyphicon-triangle-top"></i></a></span>
+                       <span class="pull-right">相关精品:<?php echo $wp_query->found_posts;?></span>
+                </div>
+                
+                
+                <div class="row">
+                
+                 	<section class="item-list">
+                    
+                     
                       <?php if( have_posts() ) : while(have_posts() ) :the_post(); ?>
                     
                      	<div class="row result-item">
@@ -380,15 +381,15 @@
                             </div>
                             
                             <div class="col-sm-6 col-xs-6">
-                             <h3><?php the_ID(); ?></h3>
-                             <h5><?php the_title(); ?></h5>
+                             <h3><a href="<?php the_permalink(); ?>"><?php the_ID(); ?></a></h3>
+                             <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
                              <h5>11.1 公分</h5>
                                <p> <?php
 					         $categories = get_the_category();
 							foreach ( $categories as $category ) { 
    							
 					  ?>	
-				      <a href="<?php get_category_link($category); ?>"><?php echo $category->name; ?></a>; 
+				      <a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>"><?php echo $category->name; ?></a>; 
                     
                      <?php		     
 						}
@@ -434,32 +435,7 @@
                   
             </div>  
         </div>
-      </div>
       
-   
-      
-     
- 
- <!-- Light Box -->  
- <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-	<div class="modal-body">
-    <button type="button" class="close" data-dismiss="modal">×</button>
-		<img src="" class="img-responsive">
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal">Close</button>
-	</div>
-   </div>
-  </div>
-</div>
-
-
-
-
-
-
 
 <?php get_footer() ?>
 
