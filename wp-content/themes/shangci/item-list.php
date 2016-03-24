@@ -3,61 +3,47 @@
   Template Name: item list page
 */
 ?>
-
-
  <!------------------------------------------- testing -------------------------------------------------->
-   <?php  
+ <?php    
+ if(isset($_GET['submit'])){
+	
+   $cat=[]; 
+   $cat_in=[];
+   $cat_decade=[];
+   $cat_shape=[];
+   $cat_dkilns=[];
+   $cat_glaze=[];
+   $cat_craft=[];
    
-   if( $_GET["decade"]) {
-      echo "Welcome ". $_GET['decade']. "<br />";
-	   $con = $_GET['decade'];
-        foreach($con as $selected)
-           echo $selected."\n";
-			
-     
-      
-     
-   }
-   
- if(isset($_POST['submit']))
-{
-     $cat=[]; 
-	 $cat_in=[];
-	 $cat_decade=[];
-	 $cat_shape=[];
-	 $cat_dkilns=[];
-	 $cat_glaze=[];
-	 $cat_craft=[];
-	 
-    if (isset($_POST['decade'])){
-        $con = $_POST['decade'];
+     if (isset($_GET['decade'])){
+        $con = $_GET['decade'];
         foreach($con as $selected)
             /*echo $selected."\n";*/
 			array_push($cat_decade,$selected);
     }
 	
-	 if (isset($_POST['shape'])){
-        $con = $_POST['shape'];
+	 if (isset($_GET['shape'])){
+        $con = $_GET['shape'];
         foreach($con as $selected)
 			array_push($cat_shape,$selected);
     }
 	
-	 if (isset($_POST['kilns'])){
-        $con = $_POST['kilns'];
+	 if (isset($_GET['kilns'])){
+        $con = $_GET['kilns'];
         foreach($con as $selected)
 /*            echo $selected."\n";*/
 			array_push($cat_dkilns,$selected);
     }
 	
-	 if (isset($_POST['glaze'])){
-        $con = $_POST['glaze'];
+	 if (isset($_GET['glaze'])){
+        $con = $_GET['glaze'];
         foreach($con as $selected)
            /* echo $selected."\n";*/
 			array_push($cat_glaze,$selected);
     }
 	
-	 if (isset($_POST['craft'])){
-        $con = $_POST['craft'];
+	 if (isset($_GET['craft'])){
+        $con = $_GETT['craft'];
         foreach($con as $selected)
             /*echo $selected."\n";*/
 			array_push($cat_craft,$selected);
@@ -87,9 +73,8 @@
 	else{
 		$cat=$cat_craft; 
 		$cat_in = array_merge($cat_decade,$cat_shape,$cat_dkilns,$cat_glaze);
-	}
-
-}
+	} 
+ }
 ?>
  <!------------------------------------------- testing end-------------------------------------------------->
 
@@ -213,7 +198,8 @@
                 </div>
                 
                 <div class="row filter hidden-xs">
-                <form action="<?php $_PHP_SELF ?>" method="GET">
+                
+                <form action="<?php  echo $_SERVER['PHP_SELF']."/jingping" ?>" method="GET">
  
                 		<div class="form-inline filter-form" role="form">
                         	<div class="row">
