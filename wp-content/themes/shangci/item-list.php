@@ -199,7 +199,7 @@
                 
                 <div class="row filter hidden-xs">
                 
-                <form action="<?php  echo $_SERVER['PHP_SELF']."/jingping" ?>" method="GET">
+                <form action="<?php echo $_SERVER['PHP_SELF']."/jingping" ?>" method="GET">
  
                 		<div class="form-inline filter-form" role="form">
                         	<div class="row">
