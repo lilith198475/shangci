@@ -428,7 +428,6 @@ echo '$("#ms").val([';
 foreach ($cat_decade as $dec) {
    echo '"'.$dec.'"'.','; 
 }
-
 echo ']);';
 
 
@@ -459,8 +458,6 @@ foreach ($cat_craft as $craf) {
 echo ']);';
 
 echo '</script>';
-
-
 
 ?>
 

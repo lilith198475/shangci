@@ -413,6 +413,7 @@ function wp_dropdown_categories( $args = '' ) {
 	} else {
 		$output = '';
 	}
+	$output .="<option value='' disabled='disabled' selected='selected'>请选择</option>\n";
 	if ( empty( $categories ) && ! $r['hide_if_empty'] && ! empty( $r['show_option_none'] ) ) {
 
 		/**
