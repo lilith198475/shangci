@@ -7,6 +7,18 @@
 
  <!------------------------------------------- testing -------------------------------------------------->
    <?php  
+   
+   if( $_GET["decade"]) {
+      echo "Welcome ". $_GET['decade']. "<br />";
+	   $con = $_GET['decade'];
+        foreach($con as $selected)
+           echo $selected."\n";
+			
+     
+      
+     
+   }
+   
  if(isset($_POST['submit']))
 {
      $cat=[]; 
@@ -201,7 +213,7 @@
                 </div>
                 
                 <div class="row filter hidden-xs">
-                <form action="" method="POST">
+                <form action="<?php $_PHP_SELF ?>" method="GET">
  
                 		<div class="form-inline filter-form" role="form">
                         	<div class="row">
@@ -261,16 +273,7 @@
  					    <div class="filter-more">
                          		<div class="filter-select">
                         			<label> <strong>窑口</strong></label>
-   									<!--<select id="ms3" multiple="multiple">
-                                        <option value="yaokou-dingyaoxi">定窑系</option>
-                                        <option value="yaokou-cizhouyaoxi">磁州窑系</option>
-                                        <option value="yaokou-yaozhouyaoxi">耀州窑系</option>
-                                        <option value="yaokou-junyaoxi">钧窑系</option>
-                                        <option value="yaokou-longquanyaoxi">龙泉窑系</option>
-                                        <option value="yaokou-jindezhenyaoxi">景德镇窑系</option>
-                                        <option value="yaokou-jianyaoxi">建窑系</option>
-                                        <option value="yaokou-yueyaoxi">越窑系</option>
-                                    </select>-->
+   									
                                     
                                    
                                          <?php 
@@ -291,10 +294,7 @@
                                  </div>  
                                  <div class="filter-select">
                         			<label> <strong>釉色</strong></label>
-   									<!--<select id="ms4" multiple="multiple">
-                                        <option value="mingjia-nianxiyao">年希尧</option>
-                                        <option value="mingjia-tangyao">唐英</option>
-                                    </select>-->
+   								
                                     
                                       <?php 
 									 $args_cat4= array(
@@ -314,10 +314,7 @@
                                  
                                  <div class="filter-select">
                         			<label> <strong>工艺</strong></label>
-   									<!--<select id="ms4" multiple="multiple">
-                                        <option value="mingjia-nianxiyao">年希尧</option>
-                                        <option value="mingjia-tangyao">唐英</option>
-                                    </select>-->
+   									
                                     
                                       <?php 
 									 $args_cat5= array(

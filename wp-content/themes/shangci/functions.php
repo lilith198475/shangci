@@ -99,12 +99,16 @@ function wpbeginner_numeric_posts_nav() {
       return;
 
     $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	
     $max   = intval( $wp_query->max_num_pages );
     /** Add current page to the array */
 
     if ( $paged >= 1 )
 
         $links[] = $paged;
+		
+		  
+   
  
     /** Add the pages around the current page to the array */
 
@@ -113,6 +117,7 @@ function wpbeginner_numeric_posts_nav() {
         $links[] = $paged - 1;
 
         $links[] = $paged - 2;
+		
 
     }
 
@@ -146,6 +151,8 @@ function wpbeginner_numeric_posts_nav() {
         $class = 1 == $paged ? ' class="active"' : '';
 
         printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
+		echo $class;
+		
 
  
 
