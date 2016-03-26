@@ -19,10 +19,11 @@
                  <h5><span>相关资料</span></h5>
                  <div class="description">
                  <?php
-				 $cur_cat_id = get_cat_id( single_cat_title("",false));
-			   
-				 echo category_description( $cur_cat_id );
-				 ?>
+				 $cur_cat_id = get_cat_id( single_cat_title("",false)); ?>
+			    <h4  class="description"><b><?php echo single_cat_title("",false); ?></b></h4>
+                 
+				<?php echo category_description( $cur_cat_id ); ?>
+                  
                  </div>
                 </div>
                     

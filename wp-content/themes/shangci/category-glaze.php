@@ -1,6 +1,6 @@
 <?php 
 /* 
-  Template Name: category - crafts
+  Template Name: category - glaze
 */
 ?>
 
@@ -15,11 +15,11 @@
       		<div class="col-md-10 col-md-offset-1  content-block">
                <div  class="content-tag">
                		<div class="row">
-                      <div class="col-xs-2 tab-active"><p><b>工艺分类</b></p></div>
+                      <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-craft" ?>"><p><b>工艺分类</b></p></a></div>
                       <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-age" ?>"><P><b>年代分类</b></P></a></div>
-                      <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-Kilns" ?>"><p><b>窑口分类</b></p></a></div>
+                      <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-kilns" ?>"><p><b>窑口分类</b></p></a></div>
                       <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-shape" ?>"><p><b>器型分类</b></p></a></div>
-                      <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-glaze" ?>"><p><b>釉色分类</b></p></a></div>    
+                      <div class="col-xs-2 tab-active"><p><b>釉色分类</b></p></div>    
                       <div class="col-xs-2 tab-sleep"><a href="<?php echo $_SERVER['PHP_SELF']."/category-people" ?>"><p><b>名家名瓷</b></p></a></div>
                     </div>
                </div>  
@@ -27,14 +27,14 @@
               <div class="content-main">             
                     
             <?php 
-                     $idObj = get_category_by_slug('craft'); 
+                     $idObj = get_category_by_slug('glaze'); 
                      $id = $idObj->term_id;
 
                     $rowswitch=0;
            ?>
                   <div class="row items-row">   
        <?php
-            $categories = get_categories( array( 'child_of' => $id, 'depth'=> 10)); 
+            $categories = get_categories( array( 'child_of' => $id, 'depth'=> 5, )); 
             foreach ( $categories as $category ) {
                 
                 $rowswitch = $rowswitch + 1;
