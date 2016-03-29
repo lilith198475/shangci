@@ -77,7 +77,7 @@
 							$top_cat = split('/',$cat_tree);
 							$parent = $top_cat[0];
 					  ?>	
-					<p><?php echo $parent; ?>：<a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>"><?php echo $category->name;?></a></p>
+					<p><?php echo $cat_tree ?>：<a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>"><?php echo $category->name;?></a></p>
                     
                      <?php		     
 						}

@@ -367,7 +367,6 @@ function wp_dropdown_categories( $args = '' ) {
 		'tab_index' => 0, 'taxonomy' => 'category',
 		'hide_if_empty' => false, 'option_none_value' => -1,
 		'value_field' => 'term_id',
-		'multiple' =>'',
 	);
 
 	$defaults['selected'] = ( is_category() ) ? get_query_var( 'cat' ) : 0;
@@ -405,15 +404,13 @@ function wp_dropdown_categories( $args = '' ) {
 
 	$name = esc_attr( $r['name'] );
 	$class = esc_attr( $r['class'] );
-	$multiple= esc_attr( $r['multiple'] );
 	$id = $r['id'] ? esc_attr( $r['id'] ) : $name;
 
 	if ( ! $r['hide_if_empty'] || ! empty( $categories ) ) {
-		$output = "<select name='$name' id='$id' class='$class' multiple='$multiple' $tab_index_attribute>\n";
+		$output = "<select name='$name' id='$id' class='$class' $tab_index_attribute>\n";
 	} else {
 		$output = '';
 	}
-	$output .="<option value='' disabled='disabled' selected='selected'>请选择</option>\n";
 	if ( empty( $categories ) && ! $r['hide_if_empty'] && ! empty( $r['show_option_none'] ) ) {
 
 		/**
