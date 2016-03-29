@@ -33,16 +33,17 @@
                     $rowswitch=0;
            ?>
                   <div class="row items-row">   
-       <?php
+        <?php
             $categories = get_categories( array( 'child_of' => $id, 'depth'=> 5, )); 
             foreach ( $categories as $category ) {
                 
-                $rowswitch = $rowswitch + 1;
-		          if ( $rowswitch == 5){
+                
+		          if ( $rowswitch == 4){
 			          echo "</div>"; 
                       echo "<div class='row items-row'>";
+					  $rowswitch=0;
                   }
-                
+                $rowswitch = $rowswitch + 1;
                    $query = new WP_Query( array( 'cat' => $category->term_id, 'posts_per_page' => 1) );
                       
                      if ( $query->have_posts() ) {
@@ -53,7 +54,7 @@
                      
                       	<div class="col-md-3">
                         <a href="<?php echo get_category_link( $category->term_id ); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-circle"  ></figure></div>
-                        <h5><b><?php echo $category->cat_name; ?></b></h5></a>
+                        <h5><b><?php echo $category->cat_name;  ?></b></h5></a>
                         
             		</div>
                       

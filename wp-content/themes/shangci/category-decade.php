@@ -27,53 +27,54 @@
               <div class="content-main">             
                     
             <?php 
-                     $idObj = get_category_by_slug('decade'); 
-                     $id = $idObj->term_id;
-
-                    $rowswitch=0;
+						 $idObj = get_category_by_slug('decade'); 
+						 $id = $idObj->term_id;
+						 $rowswitch=0;
+						 $ulswitch = true;
            ?>
-                  <div class="row items-row">   
-       <?php
-            $categories = get_categories( array( 'child_of' => $id, 'depth'=> 5, )); 
-            foreach ( $categories as $category ) {
-                
-                $rowswitch = $rowswitch + 1;
-		          if ( $rowswitch == 5){
-			          echo "</div>"; 
-                      echo "<div class='row items-row'>";
-                  }
-                
-                   $query = new WP_Query( array( 'cat' => $category->term_id, 'posts_per_page' => 1) );
-                      
-                     if ( $query->have_posts() ) {
-                       
-                        while ( $query->have_posts() ) {
-                            $query->the_post();
-                         ?>
-                     
-                      	<div class="col-md-3">
-                        <a href="<?php echo get_category_link( $category->term_id ); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-circle"  ></figure></div>
-                        <h5><b><?php echo $category->cat_name; ?></b></h5></a>
-                        
-            		</div>
-                      
-              <?php }
-                      
-                    }
-                
-                
-                
-                   else {
-                        echo "没有关联的项目";
-                    }
-                   wp_reset_postdata();
-            }
-         wp_reset_query();     
-                
-         ?>        
-                  
+              <div class="row"> 
+                 <div class="col-sm-4 col-xs-6 category-list">  
+       	  <?php
+					$categories = get_categories( array( 'child_of' => $id, 'depth'=> 5, )); 
+					foreach ( $categories as $category ) {
+                    
+					if($category->category_parent == $id){
+					  $rowswitch = $rowswitch + 1;			
+					  	if(!$ulswitch)
+					  	{ 
+					  		echo "</ul>\n";
+					  	}
+					  	$ulswitch = false;
+					  
+					   if ( $rowswitch == 2){
+							echo "</div>\n";
+							echo "<div class='col-sm-4 col-xs-6 category-list'>\n"; 
+							$rowswitch=0;
+				     	}
+						?>
+						<a href="<?php echo get_category_link( $category->term_id ); ?>">
+					      <?php  echo "<h5><b>" . $category->cat_name . "</b></h5>\n";
+						?>
+                        </a>
+                          
+					<?php	  
+					  		echo "<ul>\n\r";
+				 	 	}
+				 	  else {
+					?>	  
+					<a href="<?php echo get_category_link( $category->term_id ); ?>">
+                    <?php	  
+                     		echo "<li>". $category->cat_name ."</li>\n";
+				  		
+					?>
+                    </a>	
+						<?php }	  
+				 }
+				 ?>
+                 </ul>
+                </div>                                    
               </div>
- 		   </div>
+ 		   </div>          
 		</div>
 	</div>
 

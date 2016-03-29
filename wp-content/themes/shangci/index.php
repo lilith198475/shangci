@@ -158,11 +158,13 @@
 		  $query2 = new WP_Query( $args2 );
 		?> 
          <?php if( $query2->have_posts() ) : while( $query2->have_posts() ) : $query2->the_post(); ?>
-          <?php $rowswitch = $rowswitch + 1;
-		   if ( $rowswitch == 7){
+          <?php 
+		   if ( $rowswitch == 6){
 			    echo "</div>"; 
 			    echo "<div class='row items-row'>";
+				$rowswitch = 0;
 		   }
+		   $rowswitch = $rowswitch + 1;
 		   ?>
          	<div class="col-md-2">
            		<a href="<?php the_permalink(); ?>" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-rounded"  ></figure></div>
