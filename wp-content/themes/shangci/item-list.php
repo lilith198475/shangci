@@ -75,6 +75,8 @@
 		$cat_in = array_merge($cat_decade,$cat_shape,$cat_dkilns,$cat_glaze);
 	} 
  }
+
+ 
 ?>
  <!------------------------------------------- testing end-------------------------------------------------->
 
@@ -332,6 +334,8 @@
                         $posts_per_page = 8;
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					
+					if (isset($cat_in))
+					{
                         $args = array(
                             'post_type' => 'post',
 							'cat'=>$cat,
@@ -341,6 +345,18 @@
                             'orderby' => 'date',
                             'order' =>'DESC',
                         );
+					}
+					else{
+						$args = array(
+                            'post_type' => 'post',
+							'cat'=>$cat,
+                            'paged' => $paged, 
+                            'posts_per_page'=> $posts_per_page,
+                            'orderby' => 'date',
+                            'order' =>'DESC',
+                        );
+						
+					}
                         query_posts($args);  
 						global $wp_query; 
                     ?>     

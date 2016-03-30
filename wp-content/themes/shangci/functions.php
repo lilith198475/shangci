@@ -90,6 +90,25 @@ function ancestor_category($category){
 	
 }
 
+function ancestor_category_custom($tt, $category_name){
+	$parent = get_term_by("id", $tt->parent, $category_name);	
+	
+	
+	if($parent != true)
+	{
+	  return $tt;	
+		
+	}
+	else{
+		if ($parent->parent == 0)
+		{
+		
+			return $parent;
+        } 
+	     ancestor_category_custom($parent,$category_name);	
+	}	
+}
+
 function wpbeginner_numeric_posts_nav() {
     if( is_singular() )
         return;
