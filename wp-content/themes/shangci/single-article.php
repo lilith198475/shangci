@@ -60,7 +60,7 @@
                  <?php endwhile; else : ?>
                 <p><?echo  'Sorry, no posts found. Please contact Administrator' ?></p>   
              <?php endif; ?>  
-                 
+                 <?php wp_reset_postdata();?> 
                  <div class="row item-content">
                     <div class="col-xs-4 col-xs-offset-4">
                     	<div class="row">
@@ -95,54 +95,39 @@
                 <hr>
                 
                 
-              <div class="row">
-                
+               <div class="row">
+               
                 <?php
                    
                         
 
                         $args = array(
-                            'post_type' => 'post',
+                            'post_type' => 'article',
                             'orderby' => 'date',
                             'order' =>'DESC', 
-                            'posts_per_page' => 5,
+                            'posts_per_page' => 4,
                         );
                         $query = new WP_Query( $args );
                     ?>    
                 
-                
-                            <h4><b><a href="<?php get_site_url(); ?>/shangci/jingping">最新精品</a></b></h4>
-                         <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>   
-                         <div class="col-md-2">
-                            <a href="<?php the_permalink(); ?>" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-rounded"  ></figure></div>
+                            <h4><b><a href="../blog.html">最新专题</a></b></h4>
+             
+                          <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
+                         <div class="col-md-3">
+                            <a href="<?php the_permalink();?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('page_thumbnail'); ?>" alt="" class="img-responsive img-rounded"  ></figure></div>
                             <h5><b><?php the_title(); ?> </b></h5>
-                            <p><?php the_field('subtitle'); ?></p></a>
+                          
                         </div>
-                        
-                        
-                        <?php endwhile; else : ?>
+                       
+                          <?php endwhile; else : ?>
                         
                         <p><?echo  '抱歉，系统出现错误，请联系管理员。' ?></p>   
                 
                         <?php endif ?>
                         <?php wp_reset_postdata();?> 
                         
-                       
-
-                          <div class="col-md-2">
-                            <a href="<?php get_site_url(); ?>/shangci/jingping" class="link-more">
-                                <div class="image-preview-container">
-                                        <div class="round-button">
-                                                <span class="fa-stack fa-lg">
-                                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                                    <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
-                                                </span>
-                                                <br><br>
-                                        更多精品欣赏
-                                        </div> 
-                                </div>
-                            </a>
-                        </div>
+                         <h5  class="pull-right"><b><a href="../reports.html">更多专题...</a></b></h5>
+                         
    				</div>
             </div>  
         </div>
