@@ -8,7 +8,7 @@
               <div class="row">
             
                     <div class="single-report-head-image">
-                      <img class="img-responsive" src="<?php the_field('page_thumbnail'); ?>">
+                      <img class="img-responsive" src="<?php the_field('page_thumbnail'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>">
                      
                     </div>
                  </div>  
@@ -18,19 +18,13 @@
                     
                     <h5 class="text-center"><span>
                     
-                    
-                    
-                    
                       <?php
 					  
 					  $terms = get_the_terms($post->id, 'article-category');
 							foreach ( $terms as $term ) { 
-							
-							
-   							$parent = ancestor_category_custom($term, 'article-category');
-						    
+   								$parent = ancestor_category_custom($term, 'article-category');    
 					  ?>	
-					<p><a href="<?php echo get_term_link( $parent);  ?>"><?php echo $parent->name; //echo $parent->parent; ?></a>：<a href="<?php echo get_term_link( $term );  ?>"><?php echo $term->name;?></a></p>
+						<p><a href="<?php echo get_term_link( $parent); ?>" title="<?php echo $parent->name;?>"><?php echo $parent->name; //echo $parent->parent; ?></a>：<a href="<?php echo get_term_link( $term );  ?>" title="<?php echo $term->name;?>"><?php echo $term->name;?></a></p>
                     
                     <?php		     
 						}
@@ -114,7 +108,7 @@
              
                           <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
                          <div class="col-md-3">
-                            <a href="<?php the_permalink();?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('page_thumbnail'); ?>" alt="" class="img-responsive img-rounded"  ></figure></div>
+                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('page_thumbnail'); ?>" alt="" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div>
                             <h5><b><?php the_title(); ?> </b></h5>
                           
                         </div>

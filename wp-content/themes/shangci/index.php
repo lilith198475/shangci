@@ -45,9 +45,9 @@
 								
 						      ?> 
                             
-                             <a href="<?php the_permalink(); ?>"> <img src="<?php the_field('slider_thumb') ?>" class="img-thumbnail" alt="..."></a>
+                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"> <img src="<?php the_field('slider_thumb') ?>" class="img-thumbnail" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"></a>
                               <div class="carousel-caption">
-                                <a href="<?php the_permalink(); ?>" class="text-center"> <h4><?php the_title(); ?></h4>
+                                <a href="<?php the_permalink(); ?>" class="text-center" title="<?php the_title(); ?>"> <h4><?php the_title(); ?></h4>
                     		 <p><?php the_field('subtitle'); ?> </p></a>
                               </div>
                             </div>
@@ -167,7 +167,7 @@
 		   $rowswitch = $rowswitch + 1;
 		   ?>
          	<div class="col-md-2">
-           		<a href="<?php the_permalink(); ?>" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-rounded"  ></figure></div>
+           		<a href="<?php the_permalink(); ?>" class="text-center" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint" title="<?php the_title(); ?>"><img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive img-rounded" ></figure></div>
             	<h5><b><?php the_title(); ?></b></h5>
                 <p><?php the_field('subtitle'); ?></p></a>
             </div>

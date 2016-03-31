@@ -135,7 +135,7 @@
                        echo "<div class='row'> \n";
 					  }
                     ?>                 
-                       <div class="col-xs-3"><a href="<?php the_permalink(); ?>" class="thumbnail"><img src="<?php the_field('slider_thumb') ?>" alt="Image" class="img-responsive"></a>
+                       <div class="col-xs-3"><a href="<?php the_permalink(); ?>"  title="<?php the_title(); ?>" class="thumbnail"><img src="<?php the_field('slider_thumb') ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive"></a>
                        </div>
                       
                 
@@ -376,19 +376,19 @@
                     
                      	<div class="row result-item">
                         	<div class="col-sm-3 col-xs-4">
-                            <a href="<?php the_permalink(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-rounded"  ></figure></div></a>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive img-rounded"  ></figure></div></a>
                             </div>
                             
                             <div class="col-sm-6 col-xs-6">
-                             <h3><a href="<?php the_permalink(); ?>"><?php the_ID(); ?></a></h3>
-                             <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+                             <h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_ID(); ?></a></h3>
+                             <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
                              <h5>11.1 公分</h5>
                                <p> <?php
 					         $categories = get_the_category();
 							foreach ( $categories as $category ) { 
    							
 					  ?>	
-				      <a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>"><?php echo $category->name; ?></a>; 
+				      <a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>" title="<?php echo $category->name; ?>"><?php echo $category->name; ?></a>; 
                     
                      <?php		     
 						}
@@ -397,11 +397,11 @@
                             </div>
                             
                             <div class="col-sm-3 hidden-xs">
-                            <a href="<?php the_permalink(); ?>"><h5>点击查看精品详情</h5></a>
+                            <a href="<?php the_permalink(); ?>" title="点击查看精品详情"><h5>点击查看精品详情</h5></a>
                             </div>  
                             
                             <div class="col-xs-2 visible-xs">
-                            <a href="<?php the_permalink(); ?>"><h2>>></h2></a>
+                            <a href="<?php the_permalink(); ?>" title="点击查看精品详情"><h2>>></h2></a>
                             </div>     
                             
                         </div>

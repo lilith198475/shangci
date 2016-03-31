@@ -39,7 +39,7 @@
 						
 								   ?>
                                     <li data-thumb="<?php echo $image_url ;?>"> 
-                                        <a href="#" onClick="event.preventDefault();" title="Image 2"><img src="<?php echo $image_url; ?>" class="img-responsive lightimg"/></a>
+                                        <a href="#" onClick="event.preventDefault();" title="<?php the_title(); ?>" ><img src="<?php echo $image_url; ?>" class="img-responsive lightimg" title="<?php the_title(); ?>" alt="<?php the_title(); ?>"/></a>
                                     </li>
                                    <?php  }?>      
                                 </ul>
@@ -77,7 +77,7 @@
 							$top_cat = explode("/",$cat_tree);
 							$parent = $top_cat[0];
 					  ?>	
-					<p><?php echo $parent ?>：<a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>"><?php echo $category->name;?></a></p>
+					<p><?php echo $parent ?>：<a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>" title="<?php echo $category->name;?>"><?php echo $category->name;?></a></p>
                     
                      <?php		     
 						}
@@ -200,7 +200,7 @@
                             <h4><b><a href="<?php get_site_url(); ?>/shangci/jingping">最新精品</a></b></h4>
                          <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>   
                          <div class="col-md-2">
-                            <a href="<?php the_permalink(); ?>" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-rounded"  ></figure></div>
+                            <a href="<?php the_permalink(); ?>" class="text-center" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive img-rounded"  ></figure></div>
                             <h5><b><?php the_title(); ?> </b></h5>
                             <p><?php the_field('subtitle'); ?></p></a>
                         </div>
