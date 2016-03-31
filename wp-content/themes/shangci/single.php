@@ -74,7 +74,7 @@
 					         $categories = get_the_category();
 							foreach ( $categories as $category ) { 
    							 $cat_tree = get_category_parents($category);
-							$top_cat = split("/",$cat_tree);
+							$top_cat = explode("/",$cat_tree);
 							$parent = $top_cat[0];
 					  ?>	
 					<p><?php echo $parent ?>：<a href="<?php echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>"><?php echo $category->name;?></a></p>
