@@ -43,8 +43,8 @@
                 
                 <div class="row">
            		
-                 	<div class="row text-center">
-                     <h1><?php the_title(); ?></h1>
+                 	<div class="row text-center responsive_title">
+                     <h2><?php the_title(); ?></h2>
                      <p>作者：<?php the_field('auther'); ?></p>
                     
                     </div>  
@@ -62,7 +62,7 @@
              <?php endif; ?>  
                  <?php wp_reset_postdata();?> 
                  <div class="row item-content">
-                    <div class="col-xs-4 col-xs-offset-4">
+                    <div class="col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1 ">
                     	<div class="row">
                			<div class="col-xs-3 social">
                           <a href="#" class="social-icon">

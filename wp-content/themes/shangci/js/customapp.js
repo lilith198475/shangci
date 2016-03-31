@@ -116,14 +116,19 @@
 							return "glyphicon-triangle-top";	
 						}
 		});
-		
-		
-		
-		
-	   	
+			   	
 				
 });
 
+$(".report iframe").each(function(){
+	$(this).addClass("embed-responsive-item");
+	 if($(this).parent().is("p") ){
+		$(this).unwrap();
+		$(this).wrap("<div class='embed-responsive embed-responsive-4by3'></div>") 
+	 }
+	 
+
+});
 //$('#ms').val(["21", "22"]);
  
 

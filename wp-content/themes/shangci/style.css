@@ -729,6 +729,18 @@ border-bottom:1px solid #ccc;
 
 /* Single-Report */
 
+  .report iframe {
+	  margin: 0 auto; 
+	  display: block;
+	
+}
+
+
+.single-report-head-image{
+	padding: 10px 10px;
+	
+}
+
 .report img{
 	margin-left:auto;
 	margin-right:auto;
@@ -781,6 +793,18 @@ border-bottom:1px solid #ccc;
 .pros{
  padding:10px 15px;	
 }
+
+
+
+.responsive_title h2{
+
+
+
+}
+
+
+
+
 
 /* Common Usage*/
 .inline{
@@ -931,6 +955,17 @@ border-bottom:1px solid #ccc;
 	 .result-item div:nth-of-type(4){
 		 padding-top:40px;
 	 }
+	 
+	 .responsive_title{
+		 padding: 0px 20px; 
+	 }
+	 
+	 .responsive_title h2{
+		 font-size:1.777em;
+		 line-height:1.4em;
+
+	}
+
 		
 }
 
