@@ -9,7 +9,15 @@
                  <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
                     
-                                <h3 class="text-center">分类：<?php echo single_cat_title("",false); ?></h3>       
+                                <h3 class="text-center">分类：<?php
+								
+								
+								// echo single_cat_title("",false); 
+								$curr_cat =	$wp_query->queried_object;
+           					    echo $curr_cat->name;
+								
+								
+								?></h3>       
                     </div>
            		</div> 
                 
@@ -19,10 +27,10 @@
                  <h5><span>相关资料</span></h5>
                  <div class="description">
                  <?php
-				 $cur_cat_id = get_cat_id( single_cat_title("",false)); ?>
-			    <h4  class="description"><b><?php echo single_cat_title("",false); ?></b></h4>
+				 //$cur_cat_id = get_cat_id( single_cat_title("",false)); ?>
+			    <h4  class="description"><b><?php echo $curr_cat->name;  ?></b></h4>
                  
-				<?php echo category_description( $cur_cat_id ); ?>
+				<?php echo category_description( $curr_cat->term_id); ?>
                   
                  </div>
                 </div>
@@ -35,7 +43,7 @@
 					
                         $args = array(
                             'post_type' => 'post',
-							'cat'=>$cur_cat_id,
+							'cat'=>$curr_cat->term_id,
                             'paged' => $paged, 
                             'posts_per_page'=> $posts_per_page,
                             'orderby' => 'date',

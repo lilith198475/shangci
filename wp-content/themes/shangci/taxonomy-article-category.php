@@ -12,8 +12,12 @@
      	<div class="row  in-reports-title">
             
             <div class="col-xs-12">
-            <h1 class="text-center">专题文章以及新闻</h1>
-            <h4 class="text-center">浏览所有专题文章以及新闻询</h4>
+            <h1 class="text-center"><?php 
+			$term =	$wp_query->queried_object;
+            echo $term->name;
+			
+			 ?></h1>
+            <p class="text-center"><?php echo $term->description;?></p>
             
             </div>
 		</div>
@@ -171,7 +175,7 @@
                 <?php wp_reset_query();?>  
             </div>  
         </div>
-      
+      </div>
       
    
       
