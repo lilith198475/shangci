@@ -1,6 +1,6 @@
 <?php 
 /* 
-  Template Name: article list page
+  Template Name: video list page
 */
 ?>
 
@@ -12,8 +12,8 @@
      	<div class="row  in-reports-title">
             
             <div class="col-xs-12">
-            <h1 class="text-center">专题文章以及新闻</h1>
-            <h4 class="text-center">浏览所有专题文章以及新闻询</h4>
+            <h1 class="text-center">视频</h1>
+            <h4 class="text-center">浏览所有赏瓷网相关视频</h4>
             
             </div>
 		</div>
@@ -27,7 +27,7 @@
                  <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
                     
-                                <h5 class="text-center">专题排序</h5>       
+                                <h5 class="text-center">视频排序</h5>       
                     </div>
            		 </div> 
                  
@@ -36,66 +36,66 @@
                         <div class="text-center reports-dropdown-block">
                         			<div class="btn-group reports-dropdown" role="group">
                          			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      所有类别
+                                      主题类别
                                       <span class="glyphicon glyphicon-menu-down pull-right"></span>
                                     </button>
-                                   
-                                    
-                                    
-                                  <ul class="dropdown-menu">  
-                                     <?php 
-									 $args_cat= array(
-									  'hierarchical'=> 1, 
-									  'depth'=> 10, 
-									  'show_option_none'=>'',
-									  'title_li' => '',
-									  'taxonomy'=> 'article-category',
-
-									 );
-									 wp_list_categories( $args_cat );
-									
-									  ?>
+                                     <ul class="dropdown-menu">  
+											 <?php 
+											 		$term_test = get_term_by('slug', 'topic-cat', 'video-category');	
+													 $args_cat= array(
+													  'child_of' => $term_test->term_id,
+													  'hierarchical'=> 1, 
+													  'depth'=> 10, 
+													  'show_option_none'=>'',
+													  'title_li' => '',
+													  'taxonomy'=> 'video-category',
+				
+													 );
+													 wp_list_categories( $args_cat );
+                                            
+                                              ?>
                              
-                                 </ul>                                   
+                                 	 </ul>                                   
                                     <?php wp_reset_postdata();?> 
+                                    
+                                    
                                     </div>
                                     
                                     <div class="btn-group reports-dropdown" role="group">
                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      所有专题类别
+                                      视频类别
                                       <span class="glyphicon glyphicon-menu-down pull-right"></span>
                                     </button>
                                      <ul class="dropdown-menu">  
-                                  <?php 
-								     $term_test = get_term_by('slug', 'News-Topic', 'article-category');	
-									 $args_cat2= array(
-									  'child_of' => $term_test->term_id,
-									  'hierarchical'=> 1, 
-									  'depth'=> 10, 
-									  'show_option_none'=>'',
-									  'title_li' => '',
-									  'taxonomy'=> 'article-category',
-
-									 );
-									 wp_list_categories( $args_cat2 );
+                                 		 <?php 
+												 $term_test = get_term_by('slug', 'video-cat', 'video-category');	
+												 $args_cat2= array(
+												  'child_of' => $term_test->term_id,
+												  'hierarchical'=> 1, 
+												  'depth'=> 10, 
+												  'show_option_none'=>'',
+												  'title_li' => '',
+												  'taxonomy'=> 'video-category',
+			
+												 );
+												 wp_list_categories( $args_cat2 );
 									
 									  ?>
                                       </ul>
                                       <?php wp_reset_postdata();?> 
-                                      
                                     </div>
                         
                         </div>
                  
                 
                </div> 
-                
-                
-                 <?php
+               
+               
+               <?php
                   $posts_per_page = 8;
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				  $args = array(
-                            'post_type' => 'article',
+                            'post_type' => 'video',
                             'paged' => $paged, 
                             'posts_per_page'=> $posts_per_page,
                             'orderby' => 'date',
@@ -106,7 +106,7 @@
 				 global $wp_query; 
 					
 				
-                  ?>
+                ?>
                 
                 <div class="row order report-order">
                        <span class="pull-left">排序：  <a href="#" class="glyph-switch">日期 <i class="glyphicon glyphicon-triangle-top"></i></a></span>
@@ -117,19 +117,20 @@
                 <div class="row">
                 
                  	<section class="reports-list">
-                     
-					 
+                    
+                    
+                     	
 					 <?php if( have_posts() ) : while(have_posts() ) :the_post(); ?>
                     
                      	<div class="row result-item">
                         	<div class="col-sm-6">
-                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('page_thumbnail'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive img-rounded"  ></figure></div></a>
+                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive img-rounded"  ></figure></div></a>
                             </div>  
                             <div class="col-sm-6">
                           <?php  
-                            $terms = get_the_terms($post->id, 'article-category');
+                            $terms = get_the_terms($post->id, 'video-category');
 							foreach ( $terms as $term ) { 
-   							$parent = ancestor_category_custom($term, 'article-category');
+   							$parent = ancestor_category_custom($term, 'video-category');
                             ?>
                             <h6><a href="<?php echo get_term_link( $parent); ?>" title="<?php echo $parent->name;?>"><?php echo $parent->name; //echo $parent->parent; ?></a>：<a href="<?php echo get_term_link( $term );  ?>" title="<?php echo $term->name;?>"><?php echo $term->name;?></a></h6></p><br>
                             
@@ -139,7 +140,7 @@
                             
                             
                             <h2><a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-                            <p><a href="<?php the_permalink();?>" title="<?php the_field('sub_title'); ?>"><?php the_field('sub_title'); ?></a></p>
+                            <p><a href="<?php the_permalink();?>" title="<?php the_field('video_sub_title'); ?>"><?php the_field('sub_title'); ?></a></p>
                             <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><h5>阅读全文</h5></a>
                             </div>         
                         </div>
@@ -149,11 +150,13 @@
   	                				<p><?php echo  '抱歉，系统出现错误，请联系管理员。' ?></p>
   	
   	                <?php endif; ?>       
-                            
-                        
-                    </section>        
+
+                    </section>  
+                    
+                    
+                          
                 </div>
-               <div class="row">
+                <div class="row">
                             
                             <nav style="text-align:center;">
                                      <ul class="pagination">
@@ -162,20 +165,17 @@
                         </nav>
                      
         		</div>
-                
-                
                 </div>
-                
-                
                  <?php wp_reset_postdata();?> 
-                <?php wp_reset_query();?>  
+                <?php wp_reset_query();?> 
+                
+                
+                  
             </div>  
         </div>
-      
+      </div>
       
    
-      
-     
  
  <!-- Light Box -->  
  <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
@@ -191,5 +191,6 @@
    </div>
   </div>
 </div>
+ 
  
 <?php get_footer() ?>

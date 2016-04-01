@@ -144,8 +144,11 @@
                <?php endwhile; else : ?>
 			         <p><?echo  'Sorry, no posts found. Please contact Administrator' ?></p>   
                 
-             <?php endif; ?>   
+              <?php endif; ?>   
               <?php wp_reset_postdata();?> 
+              
+              
+              
              	<hr class="visible-xs">
                   <div class="row item-content visible-xs" >
                		<div class="col-xs-3 social">

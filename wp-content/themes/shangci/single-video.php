@@ -5,12 +5,12 @@
      <div class="container">   
         <div class="row ">
         	<div class="col-sm-10 col-sm-offset-1">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+              
+              <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <div class="row">
             
-                    <div class="single-report-head-image">
-                      <img class="img-responsive" src="<?php the_field('page_thumbnail'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>">
-                     
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="<?php echo the_field('video_link'); ?>" frameborder="0" allowfullscreen></iframe>
                     </div>
                  </div>  
                  
@@ -18,12 +18,11 @@
                     <div class="col-xs-10 col-xs-offset-1">
                     
                     <h5 class="text-center"><span>
-                    
-                      <?php
+                       <?php
 					  
-					  $terms = get_the_terms($post->id, 'article-category');
+					  $terms = get_the_terms($post->id, 'video-category');
 							foreach ( $terms as $term ) { 
-   								$parent = ancestor_category_custom($term, 'article-category');    
+   								$parent = ancestor_category_custom($term, 'video-category');    
 					  ?>	
 						<p><a href="<?php echo get_term_link( $parent); ?>" title="<?php echo $parent->name;?>"><?php echo $parent->name; //echo $parent->parent; ?></a>：<a href="<?php echo get_term_link( $term );  ?>" title="<?php echo $term->name;?>"><?php echo $term->name;?></a></p>
                     
@@ -36,11 +35,12 @@
                     </div>
            		</div> 
                 
+                 
                 <div class="row">
            		
-                 	<div class="row text-center responsive_title">
+                 	<div class="row text-center">
                      <h2><?php the_title(); ?></h2>
-                     <p>作者：<?php the_field('auther'); ?></p>
+                     <p><?php echo the_field('video_sub_title'); ?></p>
                     
                     </div>  
           	   </div>
@@ -49,18 +49,30 @@
                 <div class="row item-content report">
                   <div class="col-sm-10 col-sm-offset-1">
                  
-                  <?php the_field('article_content'); ?>
+               
+                <div class="row"> <h4 class="inline">时长:  </h4><p class="inline"> <?php the_field("video_duration"); ?></p></div> 
+                <div class="row"> <h4 class="inline">视频地址:  </h4><p class="inline"> <a href="<?php echo the_field('video_addess_youtube'); ?>">Youtube</a>，<a href="<?php echo the_field('video_address_youku'); ?>">优酷</a>，<a href="<?php echo the_field('video_address_aiqiyi'); ?>">爱奇艺</a></p></div> 
+                
+                <div class="row"> <h4>内容简介: </h4><p><?php the_field("video_description"); ?></p></div> 
+                  
+
+                  
              	  </div>
                 </div>
-                 <?php endwhile; else : ?>
-                		 <div class="row item-content report">	<p><?echo  'Sorry, no posts found. Please contact Administrator' ?></p>   </div>
-                <?php endif; ?>  
-                 <?php wp_reset_postdata();?> 
-                 
-                 
-                 
+                
+                
+             <?php endwhile; else : ?>
+             <div class="row">
+                <p><?echo  'Sorry, no posts found. Please contact Administrator' ?></p> 
+             </div>     
+             <?php endif; ?>  
+              <?php wp_reset_postdata();?> 
+             
+             
+             
+                
                  <div class="row item-content">
-                    <div class="col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1 ">
+                     <div class="col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1 ">
                     	<div class="row">
                			<div class="col-xs-3 social">
                           <a href="#" class="social-icon">
@@ -95,24 +107,23 @@
                 
                <div class="row">
                
+               
                 <?php
-                   
-                        
-
                         $args = array(
-                            'post_type' => 'article',
+                            'post_type' => 'video',
                             'orderby' => 'date',
                             'order' =>'DESC', 
                             'posts_per_page' => 4,
                         );
                         $query = new WP_Query( $args );
                     ?>    
+               
                 
-                            <h4><b><a href="<?php get_site_url(); ?>/shangci/news_article">最新专题</a></b></h4>
-             
-                          <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
+                            <h4><b><a href="../blog.html">最新视频</a></b></h4>
+                            
+                           <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
                          <div class="col-md-3">
-                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('page_thumbnail'); ?>" alt="" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div>
+                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url(); ?>" alt="" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div>
                             <h5><b><?php the_title(); ?> </b></h5>
                           
                         </div>
@@ -123,9 +134,11 @@
                 
                         <?php endif ?>
                         <?php wp_reset_postdata();?> 
-                        
-                         <h5  class="pull-right"><b><a href="<?php get_site_url(); ?>/shangci/news_article">更多专题...</a></b></h5>
-                         
+                            
+                              
+                      
+                      <h5  class="pull-right"><b><a href="<?php get_site_url(); ?>/shangci/videos">更多视频...</a></b></h5>
+                                  
    				</div>
             </div>  
         </div>
@@ -147,5 +160,4 @@
    </div>
   </div>
 </div>
- 
-<?php get_footer(); ?>
+ <?php get_footer(); ?>

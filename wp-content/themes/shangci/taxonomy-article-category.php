@@ -1,8 +1,3 @@
-<?php 
-/* 
-  Template Name: article list page
-*/
-?>
 
 <?php get_header(); ?>
   
@@ -38,6 +33,8 @@
                <div class="row"> 
                                            
                         <div class="text-center reports-dropdown-block">
+                        
+                         
                         			<div class="btn-group reports-dropdown" role="group">
                          			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       所有类别
@@ -63,6 +60,8 @@
                                  </ul>                                   
                                     <?php wp_reset_postdata();?> 
                                     </div>
+                                    
+                                    
                                     
                                     <div class="btn-group reports-dropdown" role="group">
                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,7 +98,13 @@
 				  $args = array(
                             'post_type' => 'article',
 							
-						
+						    'tax_query'=> array(
+							array(
+								'taxonomy' => 'article-category',
+								'field'    => 'term_id',
+								'terms'    => array( $term->term_id ),
+							 ),
+							),
                             'paged' => $paged, 
                             'posts_per_page'=> $posts_per_page,
                             'orderby' => 'date',
