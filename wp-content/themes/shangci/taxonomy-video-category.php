@@ -8,7 +8,9 @@
             
             <div class="col-xs-12">
             <h1 class="text-center"><?php 
-		      $wp_query->queried_object;
+		      $term=$wp_query->queried_object;
+			  
+			  
             echo $term->name;
 			 ?></h1>
             <h4 class="text-center"><?php echo $term->description;?></h4>

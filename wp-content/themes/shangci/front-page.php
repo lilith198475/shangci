@@ -79,11 +79,25 @@
           	<div id="newscontent">
                
                     <h4><b>专题报道</b></h4>
-                    <a href="single-report/1.html" style="margin-bottom:0px;">
-                    <div class="thumbnail" ><figure class="tint"><img src="img/single-report/1/thumbnail.jpg" alt="" class="img-responsive img-rounded"></figure></div>
-                    
-                    <h4 class="text-center">中國瓷器收藏指南：七大注意事項</h4>
-                   <p class="text-center">中國瓷器可能令新進藏家望而生畏，專家葛曼琪 (Margaret Gristina) 與Menachem Wecker分享鑑賞心得，協助藏家收窄購藏的範圍。</p></a>            
+                       <?php
+						    $args = array(
+                            'post_type' => 'article',
+                            'orderby' => 'date',
+                            'order' =>'DESC',
+                            'posts_per_page' => 1,
+                        	);
+                            $query = new WP_Query( $args );
+						
+                   		?>    
+                    <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
+                     <a href="<?php the_permalink(); ?>" style="margin-bottom:0px;">
+                  	  <div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="" class="img-responsive img-rounded"></figure></div>
+                  	  <h4 class="text-center"><?php the_title(); ?></h4>
+                    <p class="text-center"><?php the_field('sub_title')?></p></a>    
+                   <?php endwhile; else : ?>
+					 <p><?php echo  '抱歉，系统出现错误，请联系管理员。' ?></p>   
+                    <?php endif ?>
+                    <?php wp_reset_postdata();?>              
                 
             </div>                 
           </div>
