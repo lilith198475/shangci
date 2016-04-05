@@ -16,40 +16,47 @@
    $cat_craft=[];
    
      if (isset($_GET['decade'])){
+		
         $con = $_GET['decade'];
-        foreach($con as $selected)
-            /*echo $selected."\n";*/
-			array_push($cat_decade,$selected);
+        foreach($con as $selected1)
+           
+			array_push($cat_decade,$selected1);
     }
 	
 	 if (isset($_GET['shape'])){
         $con = $_GET['shape'];
-        foreach($con as $selected)
-			array_push($cat_shape,$selected);
+        foreach($con as $selected2)
+			array_push($cat_shape,$selected2);
     }
 	
 	 if (isset($_GET['kilns'])){
         $con = $_GET['kilns'];
-        foreach($con as $selected)
+        foreach($con as $selected3)
 /*            echo $selected."\n";*/
-			array_push($cat_dkilns,$selected);
+			array_push($cat_dkilns,$selected3);
     }
 	
 	 if (isset($_GET['glaze'])){
         $con = $_GET['glaze'];
-        foreach($con as $selected)
+        foreach($con as $selected4)
            /* echo $selected."\n";*/
-			array_push($cat_glaze,$selected);
+			array_push($cat_glaze,$selected4);
     }
 	
 	 if (isset($_GET['craft'])){
-        $con = $_GETT['craft'];
-        foreach($con as $selected)
+        $con = $_GET['craft'];
+        foreach($con as $selected5)
             /*echo $selected."\n";*/
-			array_push($cat_craft,$selected);
+			array_push($cat_craft,$selected5);
     }
 	
 	$mostitem = max(sizeof($cat_decade),sizeof($cat_shape),sizeof($cat_dkilns),sizeof($cat_glaze),sizeof($cat_craft));
+	echo sizeof($cat_decade);
+	echo sizeof($cat_shape);
+	echo sizeof($cat_dkilns);
+	echo sizeof($cat_glaze);
+	echo sizeof($cat_craft);
+	
 	if ( sizeof($cat_decade) == $mostitem )
 	{
 		$cat=$cat_decade; 
@@ -333,9 +340,14 @@
 					
                         $posts_per_page = 8;
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+						
+						
+						
 					
 					if (isset($cat_in))
 					{
+						
+						
                         $args = array(
                             'post_type' => 'post',
 							'cat'=>$cat,
@@ -439,6 +451,7 @@
 <?php get_footer() ?>
 
 <?php
+
 echo '<script type="text/javascript">';
 echo '$("#ms").val([';
 foreach ($cat_decade as $dec) {
@@ -474,6 +487,5 @@ foreach ($cat_craft as $craf) {
 echo ']);';
 
 echo '</script>';
-
 ?>
 

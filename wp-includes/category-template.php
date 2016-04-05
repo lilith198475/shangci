@@ -407,7 +407,7 @@ function wp_dropdown_categories( $args = '' ) {
 	$id = $r['id'] ? esc_attr( $r['id'] ) : $name;
 
 	if ( ! $r['hide_if_empty'] || ! empty( $categories ) ) {
-		$output = "<select name='$name' id='$id' class='$class' $tab_index_attribute>\n";
+		$output = "<select name='$name' id='$id' class='$class' $tab_index_attribute multiple='multiple'>\n";
 		$output .= "\t<option value='' disabled selected='selected'>请选择</option>\n";
 	} else {
 		$output = '';
