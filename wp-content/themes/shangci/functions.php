@@ -221,8 +221,21 @@ function wpbeginner_numeric_posts_nav() {
 
         printf( '<li>%s</li>' . "\n", get_next_posts_link("后一页") );
 
-
 }
+
+
+/* Excerpt words*/
+
+
+function excerpt_read_more_link($output) {
+    global $post;
+ 
+    $output = mb_substr($output,0, 50);
+       return $output . ' ...';
+    
+}
+
+
 ?>
 
 

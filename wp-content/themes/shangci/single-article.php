@@ -1,11 +1,10 @@
 <?php get_header(); ?>
   
 <!-- main content -->   
- 
+ <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
      <div class="container">   
         <div class="row ">
         	<div class="col-sm-10 col-sm-offset-1">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <div class="row">
             
                     <div class="single-report-head-image">
@@ -53,12 +52,9 @@
              	  </div>
                 </div>
                  <?php endwhile; else : ?>
-                		 <div class="row item-content report">	<p><?echo  'Sorry, no posts found. Please contact Administrator' ?></p>   </div>
-                <?php endif; ?>  
+                <p><?echo  'Sorry, no posts found. Please contact Administrator' ?></p>   
+             <?php endif; ?>  
                  <?php wp_reset_postdata();?> 
-                 
-                 
-                 
                  <div class="row item-content">
                     <div class="col-sm-4 col-sm-offset-4 col-xs-10 col-xs-offset-1 ">
                     	<div class="row">
@@ -108,7 +104,7 @@
                         $query = new WP_Query( $args );
                     ?>    
                 
-                            <h4><b><a href="<?php get_site_url(); ?>/shangci/news_article">最新专题</a></b></h4>
+                            <h4><b><a href="../blog.html">最新专题</a></b></h4>
              
                           <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
                          <div class="col-md-3">
@@ -124,7 +120,7 @@
                         <?php endif ?>
                         <?php wp_reset_postdata();?> 
                         
-                         <h5  class="pull-right"><b><a href="<?php get_site_url(); ?>/shangci/news_article">更多专题...</a></b></h5>
+                         <h5  class="pull-right"><b><a href="../reports.html">更多专题...</a></b></h5>
                          
    				</div>
             </div>  

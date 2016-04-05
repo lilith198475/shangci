@@ -81,10 +81,8 @@
 									
 									  ?>
                                       </ul>
-                                      <?php wp_reset_postdata();?> 
-                                      
                                     </div>
-                        
+                        <?php wp_reset_postdata();?> 
                         </div>
                  
                 
@@ -96,6 +94,8 @@
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				  $args = array(
                             'post_type' => 'article',
+							
+						
                             'paged' => $paged, 
                             'posts_per_page'=> $posts_per_page,
                             'orderby' => 'date',

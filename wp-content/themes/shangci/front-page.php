@@ -109,7 +109,7 @@
       <div class="container">
       <div class="row">
       <div class="col-md-8"> <h4><b>更多分类欣赏</b> 
-      <a href="category-crafts.html" class="round-button">
+      <a href="<?php get_site_url(); ?>/shangci/category-crafts" class="round-button">
       
       	<span class="fa-stack fa-lg">
   			<i class="fa fa-circle fa-stack-2x"></i>
@@ -119,26 +119,50 @@
     </h4> </div>
       </div>
       
-        <div class="row"> 
+        <div class="row">
+        	  <?php
+				  $args2 = array(
+				  'post_type' => 'post',
+				  'orderby' => 'rand',
+				  'posts_per_page' => 3,
+				  );
+				  
+				  $query2 = new WP_Query( $args2 );
+			  ?> 
+            <?php if( $query2->have_posts() ) : while( $query2->have_posts() ) : $query2->the_post(); ?>
          	<div class="col-md-4">
-           
-           		<a href="qixing-panxing.html" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="img/single-item/56/slider-thumb.jpg" alt="" class="img-responsive img-rounded" ></figure></div>
-            	<h5><b>器型-盘型</b></h5>
-                <p>敞口、浅腹、平底、高足或圈足</p></a>
+              <?php
+					      $categories = get_the_category();
+						  $category_index = rand(0, sizeof($categories)-1);
+   						  $cat_tree = get_category_parents($categories[$category_index]);
+					     $top_cat = explode("/",$cat_tree);
+				        $parent = $top_cat[0];
+					  ?>	
+                      
+                      
+           		<a href="<?php echo esc_url(get_category_link(get_cat_ID( $categories[$category_index]->name ))); ?>" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('slider_thumb') ?>" alt="" class="img-responsive img-rounded" ></figure></div>
+            	<h5><b>  
+				  
+				      <?php echo $parent ?>: <?php echo  $categories[$category_index]->name; 
+					  
+					  
+					  ?>; 
+                    
+                    </b></h5>
+                <p><?php 
+				$c = category_description( $categories[$category_index]->term_id);	
+				echo excerpt_read_more_link($c);
+				?>
+                
+                
+                </p></a>
             </div>
             
-            <div class="col-md-4">
-            	<a href="qixing-panxing.html" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="img/single-item/801/slider-thumb.jpg" alt="" class="img-responsive img-rounded" ></figure></div>
-            	<h5><b>釉色-青花</b></h5>
-                <p>青花瓷又称白地青花瓷,常简称青,属釉下彩瓷.</p></a>
-            </div>
-            
-            
-            <div class="col-md-4">
-            	<a href="qixing-panxing.html" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="img/single-item/301/slider-thumb.jpg" alt="" class="img-responsive img-rounded" ></figure></div>
-            	<h5><b>窑口-景德镇</b></h5>
-                <p>诞生于今江西省景德镇，故称景德镇窑,据记载始烧于唐武德(618一626)间。</p></a>
-            </div>
+             <?php endwhile; else : ?>
+ 					<p><?php echo  '抱歉，系统出现错误，请联系管理员。' ?></p>   
+		 	<?php endif ?>
+			<?php wp_reset_postdata();?>
+
         </div>  
    </div>
    
@@ -161,7 +185,7 @@
         <div class="row items-row">
         
         <?php
-		  $args2 = array(
+		  $args3 = array(
 		  'post_type' => 'post',
 		  'orderby' => 'date',
 		  'order' =>'DESC',
@@ -169,9 +193,9 @@
 		  );
 		  
 		  $rowswitch=0;
-		  $query2 = new WP_Query( $args2 );
+		  $query3 = new WP_Query( $args3 );
 		?> 
-         <?php if( $query2->have_posts() ) : while( $query2->have_posts() ) : $query2->the_post(); ?>
+         <?php if( $query3->have_posts() ) : while( $query3->have_posts() ) : $query3->the_post(); ?>
           <?php $rowswitch = $rowswitch + 1;
 		   if ( $rowswitch == 7){
 			    echo "</div>"; 
@@ -212,7 +236,7 @@
     <div class="container">
     <div class="row">
       <div class="col-md-8"> <h4> <b>视频</b>
-      <a href="video.html" class="round-button">
+      <a href="<?php get_site_url(); ?>/shangci/video-page" class="round-button">
       
       	<span class="fa-stack fa-lg">
   			<i class="fa fa-circle fa-stack-2x"></i>
@@ -223,18 +247,29 @@
       </h4> </div>
       </div>
       <div class="row">
+        <?php
+		  $args4 = array(
+		  'post_type' => 'video',
+		  'orderby' => 'date',
+		  'order' =>'DESC',
+		  'posts_per_page' => 2,
+		  );
+		  $query4 = new WP_Query( $args4 );
+		?> 
+        
+        <?php if( $query4->have_posts() ) : while( $query4->have_posts() ) : $query4->the_post(); ?>
         <div class="col-md-5">
-        	<a href="single-video/1.html" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="img/thumbnail/video1.jpg" alt="" class="img-responsive img-rounded"  ></figure></div>
-            	<h5><b>国宝档案</b></h5>
-             <p>粉彩瓷器</p></a>
+        	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="img-responsive img-rounded"  ></figure></div>
+            	<h5><b><?php the_title(); ?></b></h5>
+               <p><?php the_field('video_sub_title'); ?></p></a>
         </div>
-        <div class="col-md-5">
-        	<a href="single-video/2.html" class="text-center"><div class="thumbnail" ><figure class="tint"><img src="img/thumbnail/video2.jpg"  alt="" class="img-responsive img-rounded" ></figure></div>
-            	<h5><b>台北故宫</b></h5>
-            <p>故宫国宝在台北</p></a>
-        </div>
+        
+       <?php endwhile; else : ?>
+       			<p><?php echo  '抱歉，系统出现错误，请联系管理员。' ?></p>   
+	   <?php endif ?>
+	 <?php wp_reset_postdata();?>     
          <div class="col-md-2">
-            	<a href="video.html" class="link-more">
+            	<a href="<?php get_site_url(); ?>/shangci/video-page" class="link-more">
                 	<div class="image-preview-container2">
                             <div class="round-button">
                                     <span class="fa-stack fa-lg">

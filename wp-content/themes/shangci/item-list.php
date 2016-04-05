@@ -330,7 +330,7 @@
                 
                   <?php
                       
-						/*$cat=get_category_by_slug('棒槌瓶')->term_id;*/
+					
                         $posts_per_page = 8;
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					
