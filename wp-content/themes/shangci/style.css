@@ -280,6 +280,16 @@ margin-bottom:20px;
 	text-align:center;
 }
 
+.foot-special li{
+	margin-top:0px !important;
+
+
+}
+
+
+
+
+
 /*layout adjustment */
 
 .items-row{
@@ -967,6 +977,10 @@ border-bottom:1px solid #ccc;
 	}
 
 		
+		.foot-more {
+	text-align:center	
+}
+
 }
 
 

@@ -146,7 +146,7 @@
 				      <?php echo $parent ?>: <?php echo  $categories[$category_index]->name; 
 					  
 					  
-					  ?>; 
+					  ?>
                     
                     </b></h5>
                 <p><?php 

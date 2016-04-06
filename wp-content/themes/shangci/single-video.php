@@ -119,11 +119,11 @@
                     ?>    
                
                 
-                            <h4><b><a href="../blog.html">最新视频</a></b></h4>
+                            <h4><b><a href="<?php get_site_url(); ?>/shangci/videos">最新视频</a></b></h4>
                             
                            <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
                          <div class="col-md-3">
-                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url(); ?>" alt="" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div>
+                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url(); ?>" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div></a>
                             <h5><b><?php the_title(); ?> </b></h5>
                           
                         </div>

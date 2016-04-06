@@ -44,7 +44,11 @@ function register_theme_menus() {
 
 	register_nav_menus(
 		array(
-			'primary-menu' 	=> __( 'Main Menu', 'Shangci' )
+			'primary-menu' 	=> __( 'Main Menu', 'Shangci' ),
+			'Footer-about-link' => __('Footer About link','Shangci'),
+			'Footer-service-link' => __('Footer Service link','Shangci'),
+			'Footer-more-link' => __('Footer More link','Shangci'),
+			'Footer-special-link' => __('Footer special link','Shangci'),
 		)
 	);
 

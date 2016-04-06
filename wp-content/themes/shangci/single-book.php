@@ -1,56 +1,69 @@
 <?php get_header(); ?>
-  
-<!-- main content -->   
+
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-     <div class="container">   
-        <div class="row ">
+ <div class="container"> 
+ 		 <div class="row ">
         	<div class="col-sm-10 col-sm-offset-1">
-              <div class="row">
-            
-                    <div class="single-report-head-image">
-                      <img class="img-responsive" src="<?php the_field('page_thumbnail'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>">
-                     
-                    </div>
-                 </div>  
+             
                  
-                 <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                    
-                    <h5 class="text-center"><span>
-                    
-                      <?php
-					  
-					  $terms = get_the_terms($post->id, 'article-category');
-							foreach ( $terms as $term ) { 
-   								$parent = ancestor_category_custom($term, 'article-category');    
-					  ?>	
-						<p><a href="<?php echo get_term_link( $parent); ?>" title="<?php echo $parent->name;?>"><?php echo $parent->name; //echo $parent->parent; ?></a>：<a href="<?php echo get_term_link( $term );  ?>" title="<?php echo $term->name;?>"><?php echo $term->name;?></a></p>
-                    
-                    <?php		     
-						}
-					  ?>
-                    
-                    </span></h5>
-                                
-                    </div>
-           		</div> 
+            
                 
                 <div class="row">
            		
                  	<div class="row text-center responsive_title">
                      <h2><?php the_title(); ?></h2>
-                     <p>作者：<?php the_field('auther'); ?></p>
+                      <div class="single-report-head-image">
+                      <img class="img-responsive" src="<?php the_post_thumbnail_url() ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>">
+                     
+                    </div>
+                     
+                   
+                     
+                     <p>作者：<?php the_field('book_author'); ?></p>
+                     <p>ISBN：<?php the_field('book_isbn'); ?></p>
+                     
+                       <h5 class="text-center"><strong>相关分类：</strong> <span>
+                        <p>
+                      <?php
+					        $categories = get_the_category();
+							foreach ( $categories as $category ) { 
+					  ?>	
+						<!--  <a href="<?php //echo esc_url(get_category_link(get_cat_ID( $category->name ))); ?>" title="<?php //echo $category->name; ?>">-->
+						  <?php echo $category->name; ?>
+                          
+                         <!-- </a>-->
+                    
+                    <?php		     
+						}
+					  ?>
+                      </p>
+                    
+                    </span></h5>
+                     
+                       
                     
                     </div>  
           	   </div>
-           
+         
               
                 <div class="row item-content report">
                   <div class="col-sm-10 col-sm-offset-1">
+                  <h5><span>内容简介</span></h5>
+                
                  
-                  <?php the_field('article_content'); ?>
+                  <?php 
+				  
+				 (!empty( the_field('book_description')))?the_field('book_description') : the_field('book_short_description'); 
+				  
+				  
+				  ?>
+                  
              	  </div>
                 </div>
+                
+                
+                
+                <div class="row" style="height:60px;"></div>
                 
                 
                  <?php endwhile; else : ?>
@@ -98,7 +111,7 @@
                         
 
                         $args = array(
-                            'post_type' => 'article',
+                            'post_type' => 'book',
                             'orderby' => 'date',
                             'order' =>'DESC', 
                             'posts_per_page' => 4,
@@ -106,11 +119,11 @@
                         $query = new WP_Query( $args );
                     ?>    
                 
-                            <h4><b><a href="<?php get_site_url(); ?>/shangci/news_article">最新专题</a></b></h4>
+                            <h4><b><a href="<?php get_site_url(); ?>/shangci/book">最新专题</a></b></h4>
              
                           <?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>     
                          <div class="col-md-3">
-                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_field('page_thumbnail'); ?>" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div></a>
+                            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><div class="thumbnail" ><figure class="tint"><img src="<?php the_post_thumbnail_url(); ?>" class="img-responsive img-rounded"   title="<?php the_title(); ?>" alt="<?php the_title(); ?>" ></figure></div></a>
                             <h5><b><?php the_title(); ?> </b></h5>
                           
                         </div>
@@ -122,28 +135,12 @@
                         <?php endif ?>
                         <?php wp_reset_postdata();?> 
                         
-                         <h5  class="pull-right"><b><a href="<?php get_site_url(); ?>/shangci/news_article">更多专题...</a></b></h5>
+                         <h5  class="pull-right"><b><a href="<?php get_site_url(); ?>/shangci/book">更多专题...</a></b></h5>
                          
    				</div>
             </div>  
         </div>
-      </div>
-      
-     
  
- <!-- Light Box -->  
- <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-	<div class="modal-body">
-    <button type="button" class="close" data-dismiss="modal">×</button>
-		<img src="" class="img-responsive">
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal">Close</button>
-	</div>
-   </div>
-  </div>
-</div>
- 
+ </div>  
+
 <?php get_footer(); ?>
