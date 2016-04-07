@@ -231,10 +231,11 @@ function wpbeginner_numeric_posts_nav() {
 /* Excerpt words*/
 
 
-function excerpt_read_more_link($output) {
+function excerpt_read_more_link($output, $wordnumb) {
+
     global $post;
  
-    $output = mb_substr($output,0, 50);
+    $output = mb_substr($output,0, $wordnumb );
        return $output . ' ...';
     
 }

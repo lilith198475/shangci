@@ -151,7 +151,7 @@
                     </b></h5>
                 <p><?php 
 				$c = category_description( $categories[$category_index]->term_id);	
-				echo excerpt_read_more_link($c);
+				echo excerpt_read_more_link($c,50);
 				?>
                 
                 
