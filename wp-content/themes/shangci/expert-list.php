@@ -9,7 +9,7 @@
 
       <div class="container">      
      	<div class="row">
-      		<div class="col-md-10 col-md-offset-1  content-block">
+      		<div class="content-block">
 
               <div class="content-main">
               <h4 class="description text-center"><b >赏瓷网专家介绍</b></h4>
@@ -52,7 +52,7 @@
                 
                  	<div class="col-md-6">
                       <div class="row">
-                        <div class="col-xs-5">
+                        <div class="col-xs-4">
                         
                            <div class="row">
                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"> <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail" title="<?php the_title(); ?>" alt="<?php the_title(); ?>"></a>
@@ -76,11 +76,11 @@
                         </div>
                         
                         
-                        <div class="col-xs-7" >
+                        <div class="col-xs-8" >
                              <div class="row" style="padding:10px;">
                              
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><h6><?php the_title(); ?></h6> 
-                                <h6><?php echo excerpt_read_more_link(get_the_content(), 50); ?></h6> </a>   <h6>电子邮件：<a href="mailto:<?php the_field("expert_email"); ?>" title="<?php the_title(); ?>"><?php the_field("expert_email"); ?></a></h6>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><h4><?php the_title(); ?></h4> 
+                                <h6><?php the_content(); ?></h6> </a>   <h6>电子邮件：<a href="mailto:<?php the_field("expert_email"); ?>" title="<?php the_title(); ?>"><?php the_field("expert_email"); ?></a></h6>
                                 <h6>电话：<a href="mailto:<?php the_field("expert_phone");?>" title="<?php the_title(); ?>"><?php the_field("expert_phone");?></a></h6>
                             
                              </div>
