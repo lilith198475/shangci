@@ -53,7 +53,7 @@
                  
                   <?php 
 				  
-				 (!empty( the_field('book_description')))?the_field('book_description') : the_field('book_short_description'); 
+				 (!empty( get_field('book_description')))?the_field('book_description') : the_field('book_short_description'); 
 				  
 				  
 				  ?>

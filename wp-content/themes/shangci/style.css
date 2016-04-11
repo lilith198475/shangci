@@ -9,7 +9,9 @@ All Copy Right reserveed by Shengyi (Will) Li
 */
 
 
-@charset "utf-8";
+@charset "UTF-8";
+
+
 /* CSS Document */
 /*body{padding-top:130px;}*/
 p{ word-wrap:break-word;}
@@ -501,6 +503,16 @@ body.content-page{
 	  }
 	  
 .description h4:first-letter{
+	font-size:200%;
+	
+}
+
+.description h5:first-letter{
+	font-size:200%;
+	
+}
+
+.description:first-letter{
 	font-size:200%;
 	
 }

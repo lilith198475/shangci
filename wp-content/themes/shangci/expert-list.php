@@ -55,7 +55,7 @@
                         <div class="col-xs-4">
                         
                            <div class="row">
-                           <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"> <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail" title="<?php the_title(); ?>" alt="<?php the_title(); ?>"></a>
+                           <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail" title="<?php the_title(); ?>" alt="<?php the_title(); ?>">
                            </div>
                             <div class="row">
                                <h6>
@@ -79,8 +79,8 @@
                         <div class="col-xs-8" >
                              <div class="row" style="padding:10px;">
                              
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><h4><?php the_title(); ?></h4> 
-                                <h6><?php the_content(); ?></h6> </a>   <h6>电子邮件：<a href="mailto:<?php the_field("expert_email"); ?>" title="<?php the_title(); ?>"><?php the_field("expert_email"); ?></a></h6>
+                                <h4><?php the_title(); ?></h4> 
+                                <h6><?php the_content(); ?></h6>   <h6>电子邮件：<a href="mailto:<?php the_field("expert_email"); ?>" title="<?php the_title(); ?>"><?php the_field("expert_email"); ?></a></h6>
                                 <h6>电话：<a href="mailto:<?php the_field("expert_phone");?>" title="<?php the_title(); ?>"><?php the_field("expert_phone");?></a></h6>
                             
                              </div>

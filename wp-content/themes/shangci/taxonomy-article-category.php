@@ -98,7 +98,13 @@
                   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				  $args = array(
                             'post_type' => 'article',
-							
+							 'tax_query'=> array(
+							array(
+								'taxonomy' => 'article-category',
+								'field'    => 'term_id',
+								'terms'    => array( $term->term_id ),
+							 ),
+							),
 						
                             'paged' => $paged, 
                             'posts_per_page'=> $posts_per_page,
