@@ -15,6 +15,10 @@
 </head>
 
 <body class="content-page">
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
  	<!--<div class="navbar navbar-default navbar-fixed-top">-->
     <div class="navbar navbar-default">
  		<div class="container">

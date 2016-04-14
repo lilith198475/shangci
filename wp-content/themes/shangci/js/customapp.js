@@ -1,4 +1,5 @@
 
+ 
   $(document).ready(function() {		 
 	 // browser window scroll (in pixels) after which the "back to top" link is shown
 	     var offset = 300,
@@ -124,12 +125,19 @@ $(".report iframe").each(function(){
 	$(this).addClass("embed-responsive-item");
 	 if($(this).parent().is("p") ){
 		$(this).unwrap();
-		$(this).wrap("<div class='embed-responsive embed-responsive-4by3'></div>") 
+		$(this).wrap("<div class='embed-responsive embed-responsive-4by3'></div>"); 
 	 }
 	 
 
 });
-//$('#ms').val(["21", "22"]);
+
+
+$(window).load(function() { // makes sure the whole site is loaded
+			"use strict";
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(100).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(100).css({'overflow':'visible'});
+        });
  
 
 
