@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, ">
 <meta name="Keywords" content="中国古代瓷器, 官窑瓷器, 清代瓷器， 宋代瓷器， 唐代瓷器，明代瓷器, 瓷器介绍, 瓷器欣赏">
 <meta name="Description" content="中国古代瓷器, 官窑瓷器, 清代瓷器， 宋代瓷器， 唐代瓷器，明代瓷器, 瓷器介绍, 瓷器欣赏">
+
 <title>赏瓷网-Fine Porcelain</title>
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
