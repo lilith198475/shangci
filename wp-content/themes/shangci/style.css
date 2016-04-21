@@ -1111,4 +1111,17 @@ border-bottom:1px solid #ccc;
         padding-top: 10px;
         padding-bottom: 10px;
     }
+	
+	.nav-bottom-border{
+	border-bottom:none !important;	
+	}
+	
+	.navbar-nav > li:nth-last-child(1) a{
+		border-right:none !important;
+		
+	}
+	
+	#mobile-search{
+		display:block !important;
+	}
 }

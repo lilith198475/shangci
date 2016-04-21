@@ -55,7 +55,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
 			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
 		} else if ( strcasecmp($item->attr_title, 'div_change_line' ) == 0){
-			$output .= $indent . '<div class="clearfix hidden-xs" style="border-bottom:1px solid #f6f4ec;">';
+			$output .= $indent . '<div class="clearfix hidden-xs nav-bottom-border" style="border-bottom:1px solid #f6f4ec;">';
 		}  else if ( strcasecmp($item->attr_title, 'search_form' ) == 0){
 			$output .= $indent . '<li>
                                 <form class="navbar-form">

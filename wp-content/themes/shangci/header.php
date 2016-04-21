@@ -42,7 +42,7 @@
               <span class="icon-bar"></span>
            </button>   
            <a class="navbar-brand" href="<?php get_site_url(); ?>/shangci/"><img src="<?php bloginfo('template_directory'); ?>/img/logo.png" class="img-responsive" alt=""></a>
-           <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="visible-xs  pull-right" id="mobile-search">
+           <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="visible-xs pull-right" id="mobile-search">
             	<i class="glyphicon glyphicon-search" aria-hidden="true"></i><span style="font-size:0.6em; margin-left:5px;">快速检索</span>
            </a>
            
