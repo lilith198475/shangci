@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
 Theme Name: ShangCi Theme
 Author: Shengyi (Will) Li
@@ -7,10 +9,6 @@ Version: 1.0
 
 All Copy Right reserveed by Shengyi (Will) Li
 */
-
-
-@charset "UTF-8";
-
 
 /* CSS Document */
 /*body{padding-top:130px;}*/
@@ -1121,7 +1119,5 @@ border-bottom:1px solid #ccc;
 		
 	}
 	
-	#mobile-search{
-		display:block !important;
-	}
+	
 }
