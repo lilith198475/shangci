@@ -35,6 +35,8 @@
                    	</form>
                 </div>
 			</div>   
+            
+            
            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
               <span class="sr-only">Toggle navigation</span>   
               <span class="icon-bar"></span>

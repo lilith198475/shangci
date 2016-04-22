@@ -1119,5 +1119,11 @@ border-bottom:1px solid #ccc;
 		
 	}
 	
+
+  
+  #mobile-search{
+	  display:block !important;  
+  }
+	
 	
 }
