@@ -23,11 +23,13 @@
  	<!--<div class="navbar navbar-default navbar-fixed-top">-->
     <div class="navbar navbar-default">
  		<div class="container">
+        
+        
     	 	<div class="collapse" id="collapseExample">
             	<div>
                 	<form class="navbar-form">
                     	<div class="input-group">
-                        	<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term2">
+                        	<input type="text" class="form-control" placeholder="Search" name="srch-term2" id="srch-term2">
                             	<div class="input-group-btn">
                                 	<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                 </div>

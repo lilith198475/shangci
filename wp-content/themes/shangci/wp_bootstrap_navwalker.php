@@ -58,7 +58,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$output .= $indent . '<div class="clearfix hidden-xs nav-bottom-border" style="border-bottom:1px solid #f6f4ec;">';
 		}  else if ( strcasecmp($item->attr_title, 'search_form' ) == 0){
 			$output .= $indent . '<li>
-                                <form class="navbar-form">
+                                <form class="navbar-form side-form">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                                         <div class="input-group-btn">

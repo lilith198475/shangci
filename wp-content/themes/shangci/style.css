@@ -1018,7 +1018,7 @@ border-bottom:1px solid #ccc;
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
 	
 	/* Navgation */
 	  .navbar-nav > li > a {
@@ -1051,7 +1051,10 @@ border-bottom:1px solid #ccc;
 		  max-width:140px;
 	  }
 	  
-	  #collapseExample{display: none; }	  
+	  #collapseExample{
+		  display: none; 
+		  
+		  }	  
 	  .modal-dialog {
 			width:inherit;
 			max-width:1200px;
@@ -1118,7 +1121,22 @@ border-bottom:1px solid #ccc;
 		border-right:none !important;
 		
 	}
-	
+	.navbar-form .input-group .form-control {
+		display:table-cell !important;
+		width:650px !important;
+}
+
+
+  .side-form .btn {font-size:1rem;}
+  .side-form input[type="text"]{
+		  font-size:1.2rem;
+		  height:32px;
+		  max-width:140px;
+	  }
+
+		
+
+
 
   
   #mobile-search{
